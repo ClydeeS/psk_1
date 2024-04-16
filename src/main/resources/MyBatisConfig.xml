@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="com.example.airport.myBatis.model.Airline" alias="Airline"/>
+        <typeAlias type="com.example.airport.myBatis.model.Pilot" alias="Pilot"/>
+        <typeAlias type="com.example.airport.myBatis.model.Plane" alias="Plane"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="MANAGED"/>
+            <dataSource type="JNDI">
+                <property name="AirportDataSource" value="AirportDataSource"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mybatis.xml/AirlineMapper.xml"/>
+        <mapper resource="mybatis.xml/PilotMapper.xml"/>
+        <mapper resource="mybatis.xml/PlaneMapper.xml"/>
+    </mappers>
+</configuration>
