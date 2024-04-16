@@ -8,13 +8,11 @@
     <h:outputStylesheet name="css/style.css" />
 </h:head>
 <h:body>
-
     <div class="navbar">
         <h:link value="Airlines" outcome="/index" styleClass="nav-link" />
         <h:link value="Flights" outcome="/flights" styleClass="nav-link" />
         <h:link value="MyBatis Airlines" outcome="airlines" styleClass="nav-link" />
     </div>
-
     <h1 class="header">Airlines List</h1>
     <h:form>
         <h:dataTable value="#{airlines.allAirlines}" var="airline" styleClass="dataTable">
@@ -45,7 +43,6 @@
 
         <h:commandButton value="Add Airline" action="#{airlines.createAirline}" class="commandButton" />
     </h:form>
-
     <h1 class="header">Planes and Pilots</h1>
     <h:form>
         <h:selectOneMenu value="#{airlines.selectedAirlineId}" converter="javax.faces.Long" styleClass="selectOneMenu">
@@ -54,7 +51,6 @@
             <f:ajax listener="#{airlines.onAirlineSelected}" render="planes pilots" />
         </h:selectOneMenu>
     </h:form>
-
     <h2 class="header">Plane List for Airline</h2>
     <h:form id="planes">
         <h:dataTable value="#{planes.allSelectedPlanes}" var="plane" styleClass="dataTable">
@@ -76,7 +72,6 @@
             </h:column>
         </h:dataTable>
     </h:form>
-
     <h:form id="addPlaneForm">
         <h2 class="header">Add New Plane</h2>
         <h:panelGrid columns="2" styleClass="form-grid">

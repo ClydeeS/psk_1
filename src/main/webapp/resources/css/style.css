@@ -1,74 +1,80 @@
 body {
-    font-family: 'Helvetica Neue', sans-serif;
-    margin: 15px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0;
+    background-color: #222222;
+    color: #cccccc;
 }
-
-.main-header {
-    background-color: #e8e8e8;
-    padding: 15px;
-    text-align: right;
+.header {
+    background-color: #6a1b9a;
+    padding: 20px;
+    text-align: left;
+    font-size: 24px;
+    color: #f3e5f5;
+    border-bottom: 5px solid #9c27b0;
 }
-
-.layout-grid {
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
-
-.infoTable {
-    border-collapse: separate;
-    width: 95%;
-    margin-top: 25px;
-}
-
-.infoTable th, .infoTable td {
-    border: 2px solid #ccc;
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
     padding: 10px;
-    text-align: right;
 }
-
-.infoTable th {
-    background-color: #3E8E41;
-    color: #f0f0f0;
+.dataTable {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    width: 95%;
+    margin: 10px auto;
+    background-color: #424242;
 }
-
-.actionButton {
-    background-color: #3E8E41;
-    color: #fff;
+.dataTable th, .dataTable td {
+    border: 2px dotted #ffeb3b;
     padding: 12px;
-    border: none;
-    cursor: pointer;
-}
-
-.actionButton:hover {
-    background-color: #369636;
-}
-
-.menuDropdown {
-    font-family: 'Helvetica Neue', sans-serif;
-    padding: 12px;
-    margin-bottom: 25px;
-    cursor: pointer;
-}
-
-.menuDropdown option {
-    padding: 12px;
-}
-
-.top-nav {
-    overflow: hidden;
-    background-color: #222;
-}
-
-.top-nav a {
-    float: right;
-    display: block;
-    color: #fff;
     text-align: center;
-    padding: 16px 22px;
-    text-decoration: none;
+    background-color: #616161;
 }
-
-.top-nav a:hover {
-    background-color: #ccc;
-    color: #333;
+.dataTable th {
+    background-color: #1a237e;
+    color: #e8eaf6;
+}
+.commandButton {
+    background-color: #e91e63;
+    color: #fbe9e7;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.commandButton:hover {
+    background-color: #ad1457;
+    transform: scale(1.1);
+}
+.selectOneMenu {
+    font-family: 'Courier New', monospace;
+    padding: 12px;
+    margin: 15px 0;
+    background-color: #263238;
+    color: #cfd8dc;
+    border: 2px solid #78909c;
+    border-radius: 4px;
+}
+.selectOneMenu option {
+    background-color: #455a64;
+    color: #cfd8dc;
+}
+.navbar {
+    overflow: hidden;
+    background-color: #0d47a1;
+    border-bottom: 3px solid #64b5f6;
+}
+.navbar a {
+    float: left;
+    display: block;
+    color: #e3f2fd;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+.navbar a:hover {
+    background-color: #2196f3;
+    color: #0d47a1;
 }

@@ -9,44 +9,14 @@
 </h:head>
 <h:body>
 
+    <h1 class="header">Airlines List</h1>
+
     <div class="navbar">
         <h:link value="Airlines" outcome="index" styleClass="nav-link" />
         <h:link value="Flights" outcome="flights" styleClass="nav-link" />
         <h:link value="MyBatis Airlines" outcome="myBatis/airlines" styleClass="nav-link" />
     </div>
 
-    <h1 class="header">Airlines List</h1>
-    <h:form>
-        <h:dataTable value="#{airlines.allAirlines}" var="airline" styleClass="dataTable">
-            <h:column>
-                <f:facet name="header">Name</f:facet>
-                #{airline.name}
-            </h:column>
-            <h:column>
-                <f:facet name="header">Country</f:facet>
-                #{airline.country}
-            </h:column>
-            <h:column>
-                <f:facet name="header">Action</f:facet>
-                <h:commandButton value="Delete" action="#{airlines.deleteAirline(airline)}" class="commandButton" />
-            </h:column>
-        </h:dataTable>
-    </h:form>
-
-    <h2 class="header">Add New Airline</h2>
-    <h:form>
-        <h:panelGrid columns="2" styleClass="form-grid">
-            <h:outputLabel for="name" value="Name:" />
-            <h:inputText id="name" value="#{airlines.airlineToCreate.name}" required="true" requiredMessage="Name is required." />
-
-            <h:outputLabel for="country" value="Country:" />
-            <h:inputText id="country" value="#{airlines.airlineToCreate.country}" required="true" requiredMessage="Country is required." />
-        </h:panelGrid>
-
-        <h:commandButton value="Add Airline" action="#{airlines.createAirline}" class="commandButton" />
-    </h:form>
-
-    <h1 class="header">Planes and Pilots</h1>
     <h:form>
         <h:selectOneMenu value="#{airlines.selectedAirlineId}" converter="javax.faces.Long" styleClass="selectOneMenu">
             <f:selectItem itemLabel="Select Airline" itemValue="" noSelectionOption="true" />
@@ -77,25 +47,12 @@
         </h:dataTable>
     </h:form>
 
-    <h:form id="addPlaneForm">
-        <h2 class="header">Add New Plane</h2>
-        <h:panelGrid columns="2" styleClass="form-grid">
-            <h:outputLabel for="model" value="Model:" />
-            <h:inputText id="model" value="#{planes.planeToCreate.model}" required="true" requiredMessage="Model is required." />
-
-            <h:outputLabel for="capacity" value="Capacity:" />
-            <h:inputText id="capacity" value="#{planes.planeToCreate.capacity}" required="true" requiredMessage="Capacity is required." />
-
-            <h:commandButton value="Add Plane" actionListener="#{planes.createPlane}" class="commandButton" action="index?faces-redirect=true" />
-        </h:panelGrid>
-    </h:form>
-
     <h2 class="header">Pilot List for Airline</h2>
     <h:form id="pilots">
         <h:dataTable value="#{pilots.allSelectedPilots}" var="pilot" styleClass="dataTable">
             <h:column>
                 <f:facet name="header">Id</f:facet>
-                #{plane.id}
+                #{pilot.id}
             </h:column>
             <h:column>
                 <f:facet name="header">First Name</f:facet>
@@ -116,20 +73,20 @@
         </h:dataTable>
     </h:form>
 
-    <h:form id="addPilotForm">
-        <h2 class="header">Add New Pilot</h2>
+    <h2 class="header">Add New Airline</h2>
+    <h:form>
         <h:panelGrid columns="2" styleClass="form-grid">
-            <h:outputLabel for="firstName" value="First Name:" />
-            <h:inputText id="firstName" value="#{pilots.pilotToCreate.firstName}" required="true" requiredMessage="First name is required." />
+            <h:outputLabel for="name" value="Name:" />
+            <h:inputText id="name" value="#{airlines.airlineToCreate.name}" required="true" requiredMessage="Name is required." />
 
-            <h:outputLabel for="lastName" value="Last Name:" />
-            <h:inputText id="lastName" value="#{pilots.pilotToCreate.lastName}" required="true" requiredMessage="Last name is required." />
-
-            <h:outputLabel for="identificationNumber" value="Identification Number (from 5 digits):" />
-            <h:inputText id="identificationNumber" value="#{pilots.pilotToCreate.identificationNumber}" required="true" requiredMessage="Identification number is required." />
-
-            <h:commandButton value="Add Pilot" action="#{pilots.createPilot}" class="commandButton" />
+            <h:outputLabel for="country" value="Country:" />
+            <h:inputText id="country" value="#{airlines.airlineToCreate.country}" required="true" requiredMessage="Country is required." />
         </h:panelGrid>
+
+        <h:commandButton value="Add Airline" action="#{airlines.createAirline}" class="commandButton" />
     </h:form>
+
+    <h1 class="header">Planes and Pilots</h1>
+
 </h:body>
 </html>
